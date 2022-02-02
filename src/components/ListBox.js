@@ -3,7 +3,7 @@ const ListBox=({argonautsByColumn}) => {
 	for (let column = 0; column < 3; column++) {
 		listsByColumn[column] = argonautsByColumn[column].map((argonaut, i) => {
 			return (
-				<li className="truncate"
+				<li
 					key={argonaut.id}
 				>{argonaut.name}
 				</li>
