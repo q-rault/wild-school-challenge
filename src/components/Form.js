@@ -1,8 +1,8 @@
-function Form() {
+function Form({onNameChange, onNameSubmit}) {
     return (
       <div>
-        <input type="text" placeholder="entrer un nom ici" />
-        <button>Ajouter</button>
+        <input onChange={onNameChange} type="text" placeholder="entrer un nom ici" />
+        <button onClick={onNameSubmit} >Ajouter</button>
       </div>
     );
 }
