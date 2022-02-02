@@ -12,19 +12,18 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    // fetch('https://calm-fortress-05068.herokuapp.com/list', {
     this.getArgonautsList();
   }
 
   getArgonautsList() {
-    fetch('http://localhost:3000/list')
+    fetch('https://calm-fortress-05068.herokuapp.com/list')
     .then(response => response.json())
     .then(argonauts => this.setState({argonautsList: argonauts }))
     .catch(console.log)
   }
 
   onNameSubmit=(event) => {
-    fetch('http://localhost:3000/add', {
+    fetch('https://calm-fortress-05068.herokuapp.com/add', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -54,7 +53,7 @@ class App extends Component {
     argonautsByColumn[2]= this.state.argonautsList.slice(2*numberOfRows);
     return (
       <div className="App">
-        <h1>Les Argonautes</h1>
+        <h1 className="f1">Les Argonautes</h1>
         <Form onNameChange={this.onNameChange} onNameSubmit={this.onNameSubmit}/>
         <ListBox argonautsByColumn={argonautsByColumn}/>
         <footer>

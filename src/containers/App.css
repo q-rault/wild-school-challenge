@@ -5,6 +5,25 @@
   height:100vh;
 }
 
-button {
-  cursor : pointer;
+
+
+.Form {
+  padding: 0.5rem;
 }
+
+
+.columnContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+
+.ListBox {
+  border-radius: 1rem;
+  margin: 1rem;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: var(--main-color);
+}
+
