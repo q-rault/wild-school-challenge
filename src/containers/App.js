@@ -34,7 +34,7 @@ class App extends Component {
     .then(response => response.json())
     .then(response => {
       if (response.length) {
-        console.log(response[0]);
+        // console.log(response[0]);
         this.getArgonautsList();
       }
     })
@@ -47,14 +47,16 @@ class App extends Component {
 
 
   render() {
-    const testArgo= this.state.argonautsList.map(argo =>{
-      return argo;
-    });
+    const numberOfRows = Math.ceil((this.state.argonautsList.length)/3);
+    const argonautsByColumn=[];
+    argonautsByColumn[0]= this.state.argonautsList.slice(0,numberOfRows);
+    argonautsByColumn[1]= this.state.argonautsList.slice(numberOfRows, 2*numberOfRows);
+    argonautsByColumn[2]= this.state.argonautsList.slice(2*numberOfRows);
     return (
       <div className="App">
         <h1>Les Argonautes</h1>
         <Form onNameChange={this.onNameChange} onNameSubmit={this.onNameSubmit}/>
-        <ListBox argonauts={testArgo}/>
+        <ListBox argonautsByColumn={argonautsByColumn}/>
         <footer>
           <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
         </footer>

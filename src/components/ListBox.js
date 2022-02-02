@@ -1,24 +1,29 @@
-import {Column1,Column2, Column3} from './Column';
-const ListBox=({argonauts}) => {
-	const argonautsListElements = argonauts.map((argonaut, i) => {
-		return (
-			<li
-				key={argonaut.id}
-			>{argonaut.name}
-			</li>
-		);
-	})
-
+const ListBox=({argonautsByColumn}) => {
+	const listsByColumn=[];
+	for (let column = 0; column < 3; column++) {
+		listsByColumn[column] = argonautsByColumn[column].map((argonaut, i) => {
+			return (
+				<li
+					key={argonaut.id}
+				>{argonaut.name}
+				</li>
+			);
+		})
+	}
 
 	return (
 	    <div>
 	    	<h2>Membres de l'équipage</h2>
 		    <div className='flex flex-row'>
 		    	<ul className='w-third mt0'>
-		    		{argonautsListElements}
+		    		{listsByColumn[0]}
 		    	</ul>
-		    	<Column2 />
-		    	<Column3 />
+		    	<ul className='w-third mt0'>
+		    		{listsByColumn[1]}
+		    	</ul>
+		    	<ul className='w-third mt0'>
+		    		{listsByColumn[2]}
+		    	</ul>
 	    	</div>
 	    </div>
 	);
